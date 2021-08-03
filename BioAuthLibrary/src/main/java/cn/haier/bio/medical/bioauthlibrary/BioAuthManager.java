@@ -11,6 +11,7 @@ import java.lang.ref.WeakReference;
 public class BioAuthManager implements BioAuthWebCallBack {
     private volatile static BioAuthManager manager;
     private Context mContext;
+    private static final String AUTH_CODE = "";
     private WeakReference<BioAuthListener> listener;
     private String appName;                 //应用名
     private String appEdition;              //版本号
@@ -39,10 +40,10 @@ public class BioAuthManager implements BioAuthWebCallBack {
 
     /**
      * 是否已经授权
-     * @param data 加密后的预存值，授权成功后返回给主app
      * @return
      */
-    public boolean isAuthorized(String data){
+    public boolean isAuthorized(){
+        String data = PreferenceUtils.getString(mContext,AUTH_CODE,"");
         if(TextUtils.isEmpty(data)) return false;
         BioAuthModel model = BioAuthModel.parseData(data);
         if(model == null){
@@ -118,6 +119,7 @@ public class BioAuthManager implements BioAuthWebCallBack {
         try {
             json = new JSONObject(response);
             if(json.getInt("code") == 0){
+                PreferenceUtils.putString(mContext,AUTH_CODE,json.getString("data"));
                 listener.get().authSuccess(json.getString("data"));
             } else{
                 listener.get().authFailure(json.getString("msg"));

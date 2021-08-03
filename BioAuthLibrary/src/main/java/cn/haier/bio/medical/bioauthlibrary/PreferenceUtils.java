@@ -1,4 +1,4 @@
-package cn.haier.bio.medical.bioauth;
+package cn.haier.bio.medical.bioauthlibrary;
 
 import android.content.Context;
 import android.content.SharedPreferences;

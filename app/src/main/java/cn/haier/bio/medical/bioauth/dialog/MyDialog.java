@@ -59,4 +59,10 @@ public class MyDialog extends Dialog implements View.OnClickListener {
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.exit(0);
+    }
 }

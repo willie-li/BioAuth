@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements BioAuthListener, 
     private Button mNoSnBtn;
     private MyHandler handler;
     private HandlerThread thread;
-    private String authorizedCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements BioAuthListener, 
         setContentView(R.layout.activity_main);
         createHandler();
         BioAuthManager.getInstance().init(this,this);
-        authorizedCode = PreferenceUtils.getString(this,"auth_code");
         mSnBtn = findViewById(R.id.btn_have_sn);
         mSnBtn.setOnClickListener(this);
         mNoSnBtn = findViewById(R.id.btn_no_sn);
@@ -74,8 +72,7 @@ public class MainActivity extends AppCompatActivity implements BioAuthListener, 
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_have_sn:
-                authorizedCode = PreferenceUtils.getString(this,"auth_code");
-                if(BioAuthManager.getInstance().isAuthorized(authorizedCode)){
+                if(BioAuthManager.getInstance().isAuthorized()){
                     Toast.makeText(MainActivity.this,"已授权",Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -87,8 +84,7 @@ public class MainActivity extends AppCompatActivity implements BioAuthListener, 
                 }
                 break;
             case R.id.btn_no_sn:
-                authorizedCode = PreferenceUtils.getString(this,"auth_code");
-                if(BioAuthManager.getInstance().isAuthorized(authorizedCode)){
+                if(BioAuthManager.getInstance().isAuthorized()){
                     Toast.makeText(MainActivity.this,"已授权",Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -123,8 +119,6 @@ public class MainActivity extends AppCompatActivity implements BioAuthListener, 
             switch (msg.what) {
                 case AUTH_SUCCESS:
                     Toast.makeText(MainActivity.this,"授权成功",Toast.LENGTH_SHORT).show();
-                    //授权成功后把加密字符串保存
-                    PreferenceUtils.putString(MainActivity.this,"auth_code",msg.obj.toString());
                     break;
                 case AUTH_FAILURE:
                     Toast.makeText(MainActivity.this,"授权失败,"+msg.obj,Toast.LENGTH_SHORT).show();
@@ -142,4 +136,5 @@ public class MainActivity extends AppCompatActivity implements BioAuthListener, 
         message.obj = msg;
         handler.sendMessage(message);
     }
+
 }
