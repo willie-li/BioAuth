@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="授权码验证"
+        android:textColor="#646464"
+        android:textSize="23sp"
+        android:layout_marginTop="27dp" />
+
+    <RelativeLayout
+        android:id="@+id/ib_close_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible">
+        <ImageButton
+            android:id="@+id/ib_close_btn_1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_dialog_close"
+            android:background="@null"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/view_bottom"
+        android:layout_below="@id/title"
+        android:gravity="center_horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_sn_code"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/bg_edit_text"
+            android:layout_marginTop="21dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+            <EditText
+                android:id="@+id/et_sn_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#4673D1"
+                android:textSize="20sp"
+                android:paddingStart="15dp"
+                android:hint="请输入机器编码"
+                android:gravity="center_vertical"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/bg_edit_text"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_auth_code"
+            android:layout_width="match_parent"
+            android:layout_below="@id/rl_sn_code"
+            android:layout_height="55dp"
+            android:background="@drawable/bg_edit_text"
+            android:layout_marginTop="21dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+            <EditText
+                android:id="@+id/et_auth_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#4673D1"
+                android:textSize="20sp"
+                android:paddingStart="15dp"
+                android:hint="请输入授权码"
+                android:text="1627874618304"
+                android:gravity="center_vertical"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/bg_edit_text"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/view_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_horizontal">
+        <Button
+            android:id="@+id/confirm_btn"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:background="@mipmap/ic_output_storage"
+            android:text="验证授权"
+            android:textColor="#ffffff"
+            android:textSize="23sp"/>
+    </RelativeLayout>
+
+</RelativeLayout>

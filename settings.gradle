@@ -1,0 +1,3 @@
+include ':BioAuthLibrary'
+include ':app'
+rootProject.name = "BioAuth"
