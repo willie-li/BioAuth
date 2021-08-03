@@ -5,10 +5,10 @@ android {
 
     defaultConfig {
         applicationId "cn.haier.bio.medical.bioauth"
-        minSdkVersion 19
+        minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
