@@ -54,8 +54,8 @@ public class BioAuthModel {
     public static BioAuthModel parseData(String data){
         BioAuthModel model = new BioAuthModel();
         try {
-            JSONObject json = new JSONObject(data);
-            JSONObject json1 = new JSONObject(AES.decode(json.getString("data")));
+//            JSONObject json = new JSONObject(data);
+            JSONObject json1 = new JSONObject(AES.decode(data));
             model.setScreenCode(json1.getString("screenCode"));
             model.setAuthCode(json1.getString("authCode"));
             model.setDeviceCode(json1.getString("deviceCode"));
