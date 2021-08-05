@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity implements BioAuthListener, 
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_have_sn:
-                if(BioAuthManager.getInstance().isAuthorized()){
-                    Toast.makeText(MainActivity.this,"已授权",Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                if(BioAuthManager.getInstance().isAuthorized()){
+//                    Toast.makeText(MainActivity.this,"已授权",Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
                 if(mSnDialog == null){
                     mSnDialog = new MyDialog(this,this,"",R.style.custom_dialog);
                 }
@@ -84,10 +84,10 @@ public class MainActivity extends AppCompatActivity implements BioAuthListener, 
                 }
                 break;
             case R.id.btn_no_sn:
-                if(BioAuthManager.getInstance().isAuthorized()){
-                    Toast.makeText(MainActivity.this,"已授权",Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                if(BioAuthManager.getInstance().isAuthorized()){
+//                    Toast.makeText(MainActivity.this,"已授权",Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
                 if(mNoSnDialog == null){
                     mNoSnDialog = new MyDialog(this,this,BioAuthManager.getInstance().getScreenCode(),R.style.custom_dialog);
                 }

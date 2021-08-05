@@ -73,7 +73,8 @@ public class BioAuthManager implements BioAuthWebCallBack {
      *
      * @param deviceCode   设备机编
      * @param authCode     授权码
-     */
+     * @param appCode      app唯一标识
+    */
     public void checkAuthWithSN(String deviceCode, String authCode,String appCode) {
         if(TextUtils.isEmpty(authCode) || TextUtils.isEmpty(deviceCode) || TextUtils.isEmpty(appCode)) return;
         checkAuth(deviceCode,authCode,screenCode,appCode);

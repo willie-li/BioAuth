@@ -55,7 +55,7 @@ public class MyDialog extends Dialog implements View.OnClickListener {
                 this.dismiss();
                 break;
             case R.id.confirm_btn:
-                BioAuthManager.getInstance().checkAuthNoSN(mAuthCodeEt.getText().toString(),"TTTT");
+                BioAuthManager.getInstance().checkAuthNoSN(mAuthCodeEt.getText().toString(),"vims_bigsmallscreen");
                 break;
         }
     }
