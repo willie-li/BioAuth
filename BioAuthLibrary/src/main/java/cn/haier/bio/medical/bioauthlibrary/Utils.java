@@ -94,7 +94,8 @@ public class Utils {
             }
             listener.get().success(sb.toString());
         } catch (ConnectException e){
-            Log.d("TAG","connect timeout");
+            Log.e("TAG","connect timeout");
+            listener.get().error(e.getMessage());
         }
         catch (Exception e) {
             listener.get().error(e.getMessage());
